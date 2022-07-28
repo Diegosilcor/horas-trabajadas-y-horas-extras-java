@@ -1,20 +1,34 @@
 import javax.swing.JOptionPane;
 
-// Un obrero necesita calcular su salario semanal, el cual se obtine de la siguiente manera: Si trabaja 40 horas o menos se le paga $16 por hora. Si trabaja mas de 40 horas se le paga $16 por cada una de las primera 40 horas y $20 por cada hora extra.
+// Pedir tres numeros y mostrarlos ordenados de mayor a menor
 
+import javax.swing.JOptionPane;
 public class App {
-    public static void main(String[] args) throws Exception {
-        int horasTrabajadas;
-        float salarioTotal;
+    public static void main(String[] args) {
+        int n1, n2, n3;
+        
+        n1 = Integer.parseInt(JOptionPane.showInputDialog("Digite un numero"));
+        n2 = Integer.parseInt(JOptionPane.showInputDialog("Digite un numero"));
+        n3 = Integer.parseInt(JOptionPane.showInputDialog("Digite un numero"));
 
-        horasTrabajadas = Integer.parseInt(JOptionPane.showInputDialog("Digite el total de horas trabajadas"));
-
-        if (horasTrabajadas <= 40) {
-            salarioTotal = horasTrabajadas *16;
+        if ((n1 > n2) && (n2 > n3)) {
+            JOptionPane.showMessageDialog(null, "Orden: " + n1 + " - " + n2 + " - " + n3);
+        }
+        else if ((n1 > n3) && (n3 > n2)) {
+            JOptionPane.showMessageDialog(null, "Orden: " + n1 + " - " + n3 + " - " + n2);
+        }
+        else if ((n2 > n1) && (n1 > n3)) {
+            JOptionPane.showMessageDialog(null, "Orden: " + n2 + " - " + n1 + " - " + n3);
+        }
+        else if ((n2 > n3) && (n3 > n1)) {
+            JOptionPane.showMessageDialog(null, "Orden: " + n2 + " - " + n3 + " - " + n1);
+        }
+        else if ((n3 > n2) && (n1 > n2)) {
+            JOptionPane.showMessageDialog(null, "Orden: " + n3 + " - " + n1 + " - " + n2);
         }
         else {
-            salarioTotal = (40 * 16) + ((horasTrabajadas - 40) * 20);
+            JOptionPane.showMessageDialog(null, "Orden: " + n3 + " - " + n2 + " - " + n1);
         }
-        JOptionPane.showMessageDialog(null, "El salario total es: $" + salarioTotal);
+
     }
 }
