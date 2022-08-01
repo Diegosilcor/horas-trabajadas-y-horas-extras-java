@@ -1,52 +1,39 @@
-import javax.swing.JOptionPane;
 
-// Contruir un programa que simule el funcionamiento de una calculadora que puede realizar las cuatro operacion aritmeticas basicas (suma, resta, producto, division) con valores numericos entereos. El usuario debe especificar la operacion con el primer caracter del primer parametro de la linea de comando: S o s para la suma R o r para la resta, P, p, M o m para el producto y D o d para la division.
+
+// Pedir una nota de 0 a 10 y mostrarla de la forma: insuficiente, suficiente, bien, notable y sobresaliente.
 
 import javax.swing.JOptionPane;
 public class App {
     public static void main(String[] args) {
-        int numero1, numero2, suma, resta, multiplicacion, division;
-        char operacion;
+        int nota;
 
-        
+        nota = Integer.parseInt(JOptionPane.showInputDialog("Digite una nota: "));
 
-        numero1 = Integer.parseInt(JOptionPane.showInputDialog("Digite un numero"));
-        numero2 = Integer.parseInt(JOptionPane.showInputDialog("Digite un numero"));
-        
-
-        operacion = JOptionPane.showInputDialog("Digite la operacion que dese realizar").charAt(0);
-
-
-        switch (operacion) {
-            case 's':
-            case 'S':
-                suma = numero1 + numero2;
-                JOptionPane.showMessageDialog(null, "La suma es: " + suma);
+        switch (nota) {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+                JOptionPane.showMessageDialog(null, "Insuficiente");
                 break;
-
-            case 'r':
-            case 'R':
-                resta = numero1 - numero2;
-                JOptionPane.showMessageDialog(null, "La resta es: " + resta);
+            case 5:
+                JOptionPane.showMessageDialog(null, "Suficiente");
                 break;
-
-            case 'p':
-            case 'P':
-            case 'M':
-            case 'm':
-                multiplicacion = numero1 * numero2;
-                JOptionPane.showMessageDialog(null, "La multiplicacion es: " + multiplicacion);
+            case 6:
+                JOptionPane.showMessageDialog(null, "Bien");
                 break;
-            
-            case 'D':
-            case 'd':
-                division = numero1/numero2;
-                JOptionPane.showMessageDialog(null, "La division es: " + division);
+            case 7:
+            case 8:
+                JOptionPane.showMessageDialog(null, "Notable");
+                break;        
+            case 9:
+            case 10:
+                JOptionPane.showMessageDialog(null, "Sobresaliente");
                 break;
-                
-            default: JOptionPane.showMessageDialog(null, "Error, se equivoco de operacion");  
-            
-            }            
+            default: 
+                JOptionPane.showMessageDialog(null, "Error");    
+        }
         }
     }
 
