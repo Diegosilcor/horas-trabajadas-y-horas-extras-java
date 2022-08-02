@@ -1,39 +1,46 @@
 
-
-// Pedir una nota de 0 a 10 y mostrarla de la forma: insuficiente, suficiente, bien, notable y sobresaliente.
+// Hacer un programa que simule un cajero automatico con un saldo inicial de 1000 dolares, con el siguiente menu de opciones:
+// 1 Ingresar dinero a la cuenta
+// 2 Retirar dinero de la cuenta
+// 3 Salir
 
 import javax.swing.JOptionPane;
+
 public class App {
     public static void main(String[] args) {
-        int nota;
+        final int saldo_inicial = 1000;
+        int opcion;
+        float ingreso, saldoActual, retiro;
 
-        nota = Integer.parseInt(JOptionPane.showInputDialog("Digite una nota: "));
+        opcion = Integer.parseInt(JOptionPane.showInputDialog(null, " Bienvenido a su cajero automatico\n"
+                + "1. Ingresar dinero a la cuenta\n"
+                + "2. Retirar dinero de la cuenta\n"
+                + "3. Salir"));
 
-        switch (nota) {
-            case 0:
+        switch (opcion) {
             case 1:
+                ingreso = Float
+                        .parseFloat(JOptionPane.showInputDialog("Digite la cantidad que desea ingresar en la cuenta"));
+                saldoActual = saldo_inicial + ingreso;
+                JOptionPane.showMessageDialog(null, "Dinero en la cuenta: " + saldoActual);
+                break;
+
             case 2:
+                retiro = Float
+                        .parseFloat(JOptionPane.showInputDialog("Digite la cantidad que desea retirar en la cuenta"));
+
+                if (retiro > saldo_inicial) {
+                    JOptionPane.showMessageDialog(null, "No cuenta con el saldo suficiente para el retiro");
+                } else {
+                    saldoActual = saldo_inicial - retiro;
+                    JOptionPane.showMessageDialog(null, "Dinero en cuenta: " + saldoActual);
+                }
+                break;
             case 3:
-            case 4:
-                JOptionPane.showMessageDialog(null, "Insuficiente");
                 break;
-            case 5:
-                JOptionPane.showMessageDialog(null, "Suficiente");
+            default:
+                JOptionPane.showMessageDialog(null, "Opcion no encontrada");
                 break;
-            case 6:
-                JOptionPane.showMessageDialog(null, "Bien");
-                break;
-            case 7:
-            case 8:
-                JOptionPane.showMessageDialog(null, "Notable");
-                break;        
-            case 9:
-            case 10:
-                JOptionPane.showMessageDialog(null, "Sobresaliente");
-                break;
-            default: 
-                JOptionPane.showMessageDialog(null, "Error");    
-        }
         }
     }
-
+}
