@@ -1,46 +1,56 @@
 
-// Hacer un programa que simule un cajero automatico con un saldo inicial de 1000 dolares, con el siguiente menu de opciones:
-// 1 Ingresar dinero a la cuenta
-// 2 Retirar dinero de la cuenta
-// 3 Salir
-
+// Hacer un programa que pase de kg a otra unidad de media de masa, mostrar en pantalla un meno con las opciones posibles.
 import javax.swing.JOptionPane;
 
 public class App {
     public static void main(String[] args) {
-        final int saldo_inicial = 1000;
+        float medida;
         int opcion;
-        float ingreso, saldoActual, retiro;
 
-        opcion = Integer.parseInt(JOptionPane.showInputDialog(null, " Bienvenido a su cajero automatico\n"
-                + "1. Ingresar dinero a la cuenta\n"
-                + "2. Retirar dinero de la cuenta\n"
-                + "3. Salir"));
+        medida = Float.parseFloat(JOptionPane.showInputDialog("Digite la cantidad de kilogramos"));
+
+        opcion = Integer.parseInt(JOptionPane.showInputDialog("MENU\n"
+                + "1. Hectogramos\n"
+                + "2. Decagramos\n"
+                + "3. Gramos\n"
+                + "4. Decigramos\n"
+                + "5. Centigramos\n"
+                + "6. Miligramos"));
 
         switch (opcion) {
             case 1:
-                ingreso = Float
-                        .parseFloat(JOptionPane.showInputDialog("Digite la cantidad que desea ingresar en la cuenta"));
-                saldoActual = saldo_inicial + ingreso;
-                JOptionPane.showMessageDialog(null, "Dinero en la cuenta: " + saldoActual);
-                break;
-
+                medida *= 10;
+                JOptionPane.showMessageDialog(null, "La nueva medida en Hectogramos es: " + medida);
+        break;
             case 2:
-                retiro = Float
-                        .parseFloat(JOptionPane.showInputDialog("Digite la cantidad que desea retirar en la cuenta"));
-
-                if (retiro > saldo_inicial) {
-                    JOptionPane.showMessageDialog(null, "No cuenta con el saldo suficiente para el retiro");
-                } else {
-                    saldoActual = saldo_inicial - retiro;
-                    JOptionPane.showMessageDialog(null, "Dinero en cuenta: " + saldoActual);
-                }
+                medida *= 100;
+            
+                JOptionPane.showMessageDialog(null, "La nueva medida en Decagramos es: " + medida);
                 break;
             case 3:
+                medida *= 1000;
+                JOptionPane.showMessageDialog(null, "La nueva medida en Gramos es: " + medida);
                 break;
-            default:
-                JOptionPane.showMessageDialog(null, "Opcion no encontrada");
+                
+            case 4:
+                medida *= 10000;
+                JOptionPane.showMessageDialog(null, "La nueva medida en Decifgramos es: " + medida);
                 break;
+
+            case 5:
+                medida *= 100000;
+                JOptionPane.showMessageDialog(null, "La nueva medida en Centigramos es: " + medida);
+                break;
+
+            case 6:
+                medida *= 1000000;
+            JOptionPane.showMessageDialog(null, "La nueva medida en Miligramos es: " + medida); 
+            break;
+            
+            default: 
+                JOptionPane.showMessageDialog(null, "Error, se a confundido de opcion de menu");
+            break;    
+
         }
     }
 }
